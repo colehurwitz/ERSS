@@ -1,6 +1,6 @@
 # Extracellular Recording Site Simulator
 
-Tool for creating a biophysically realistic extracellular recording site given a probe geometry and brain region. Currently supports the Neuropixels probe geometry and a detailed Somatosensory cortex column brain region of a rat.
+Tool for creating a biophysically realistic recording site given a probe geometry and brain region. Currently supports the Neuropixels probe and the Somatosensory cortex column brain region of a rat.
  
 
 ## Getting Started
@@ -24,3 +24,5 @@ APA
 Meyer, Hanno S., et al. "Number and laminar distribution of neurons in a thalamocortical projection column of rat vibrissal cortex." Cerebral cortex 20.10 (2010): 2277-2286.
 
 Meyer, Hanno S., et al. "Cell type–specific thalamic innervation in a column of rat vibrissal cortex." Cerebral cortex 20.10 (2010): 2287-2303.
+
+
