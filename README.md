@@ -7,7 +7,7 @@ The Extracellular Recording Site Simulator (ERSS) is a tool for creating biophys
 
 To get started with ERSS, clone the repo into your code base.
 
-```python
+```shell
 git clone https://github.com/colehurwitz31/ERSS.git
 ```
 
