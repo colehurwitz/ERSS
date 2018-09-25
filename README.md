@@ -11,6 +11,19 @@ To get started with ERSS, clone the repo into your code base.
 git clone https://github.com/colehurwitz31/ERSS.git
 ```
 
+To create a new cortex object, pick a brain region (currently, only the cortex region is supported) and import the region class.
+
+Then, import the data to build the region class from the animal of your choice and the reconstruction data of your choice. So far, we have implemented methods for the rat class 
+
+```python
+from regions.cortex.CortexColumn import Column
+from regions.cortex.rat_data.CortexDataDicts import createHelmstaedterRatSomatosensoryCortexDataDict
+
+rat_somatosensory_cortex_data_dict = createHelmstaedterRatSomatosensoryCortexDataDict()
+
+column = Column(rat_somatosensory_cortex_data_dict, radius=200.0, min_neuron_dist=15)
+```
+
 ### Uses
 
 This software was designed as an intial step in creating brain/probe specific evaluation datasets for
