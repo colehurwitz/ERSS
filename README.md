@@ -5,7 +5,7 @@ The Extracellular Recording Site Simulator (ERSS) is a tool for creating biophys
 
 ## Getting Started
 
-Read/run the notebook example in the cortex_simulation folder for a breakdown of how the code works.
+Read/run the notebook example in ERSS
 
 ### Uses
 
