@@ -5,7 +5,10 @@ The Extracellular Recording Site Simulator (ERSS) is a tool for creating biophys
 
 ## Getting Started
 
-Read/run the notebook example in ERSS
+```python
+s = "Python syntax highlighting"
+print s
+```
 
 ### Uses
 
