@@ -100,12 +100,27 @@ class Column(object):
         ceiling = Circle((x_center, y_center), radius, color=color, alpha=alpha)
         ax.add_patch(ceiling)
         art3d.pathpatch_2d_to_3d(ceiling, z=depth_start+height, zdir="z")
+        
+        f = lambda m,c: plt.plot([],[],marker=m, color=c, ls="none")[0]
+        
+        colors = ["red", "blue"]
+        handles = [f(".", colors[i]) for i in range(2)]
 
+        labels = ["Excitatory neurons", "Inhibitory neurons"]
+
+        plt.legend(handles, labels, loc=1, framealpha=1, prop={'size': plt.gcf().get_figheight()})
+        
         ax.set_xlim(-300, 300)
         ax.set_ylim(-300, 300)
-        ax.set_xlabel('x (microns)')
-        ax.set_ylabel('y (microns)')
-        ax.set_zlabel('Depth (Microns)')
+        ax.set_xlabel('x (microns)', labelpad=plt.gcf().get_figheight()*2)
+        ax.set_ylabel('y (microns)', labelpad=plt.gcf().get_figheight()*2)
+        ax.set_zlabel('Depth (Microns)', labelpad=plt.gcf().get_figheight()*2)
+        ax.set_title("Layer: " + str(region))
+        for item in ([ax.title, ax.xaxis.label, ax.yaxis.label, ax.zaxis.label] + ax.get_xticklabels() + ax.get_yticklabels() + ax.get_zticklabels()):
+            item.set_fontsize(plt.gcf().get_figheight()*.75)
+        
+        plt.show()
+
         
     def plotColumn(self, neuron_df=None, plot_neurons=False, resolution=100, alpha=.25, x_center = 0, 
                    y_center = 0, ax=None):
@@ -193,6 +208,7 @@ class Column(object):
             print("EX Neurons: " + str(ex_counts))
 
     #   Plot layer cylinders
+        layer_colors = []
         for i in range(len(radii)):
             depth = self.depths[i]
             radius = radii[i]
@@ -205,6 +221,7 @@ class Column(object):
             Y = np.sqrt(radius**2 - (X - x_center)**2) + y_center # Pythagorean theorem
             
             color = np.random.rand(3,)
+            layer_colors.append(color)
             ax.plot_surface(X, Y, Z, linewidth=0, color=color, alpha=alpha)
             ax.plot_surface(X, (2*y_center-Y), Z, linewidth=0, color=color, alpha=alpha)
             floor = Circle((x_center, y_center), radius, color=color, alpha=alpha)
@@ -216,11 +233,35 @@ class Column(object):
             art3d.pathpatch_2d_to_3d(ceiling, z=depth+height, zdir="z")
 
             depth += height
+            
+        f = lambda m,c: plt.plot([],[],marker=m, color=c, ls="none")[0]
+        
+        if(plot_neurons):
+            colors = ["red", "blue"] + layer_colors
+            handles = [f(".", colors[i]) for i in range(2)]
+            handles += [f("s", colors[i]) for i in range(len(layer_names))]
+
+            labels = ["Excitatory neurons", "Inhibitory neurons"] + layer_names
+
+            plt.legend(handles, labels, loc=1, framealpha=1, prop={'size': plt.gcf().get_figheight()})
+        
+        else:
+            colors = layer_colors
+            handles = [f("s", colors[i]) for i in range(len(layer_names))]
+
+            labels = layer_names
+
+            plt.legend(handles, labels, loc=1, framealpha=1, prop={'size': plt.gcf().get_figheight()})
+        
         ax.set_xlim(-300, 300)
         ax.set_ylim(-300, 300)
-        ax.set_xlabel('x (microns)')
-        ax.set_ylabel('y (microns)')
-        ax.set_zlabel('Depth (Microns)')
+        ax.set_xlabel('x (microns)', labelpad=plt.gcf().get_figheight()*2)
+        ax.set_ylabel('y (microns)', labelpad=plt.gcf().get_figheight()*2)
+        ax.set_zlabel('Depth (Microns)', labelpad=plt.gcf().get_figheight()*2)
+        for item in ([ax.title, ax.xaxis.label, ax.yaxis.label, ax.zaxis.label] + ax.get_xticklabels() + ax.get_yticklabels() + ax.get_zticklabels()):
+            item.set_fontsize(plt.gcf().get_figheight()*.75)
+    
+        plt.show()
                                       
     def plotDensityDistribution(self, ax=None):
         '''This plots density vs. depth distribution of the column.

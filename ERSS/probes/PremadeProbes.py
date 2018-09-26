@@ -78,7 +78,7 @@ class NeuropixelsProbe(BaseProbe):
             for i, row in self.channel_df.iterrows():
                 if(row['type'] == 'ref'):
                     channel = Channel(i, row['pos'], 'ref')
-                    ax.scatter3D(channel.pos[0], channel.pos[1], channel.pos[2], c='orange')
+                    ax.scatter3D(channel.pos[0], channel.pos[1], channel.pos[2], c='black')
                 else:
                     channel = Channel(i, row['pos'], 'rec')
                     ax.scatter3D(channel.pos[0], channel.pos[1], channel.pos[2], c='black')
@@ -87,7 +87,7 @@ class NeuropixelsProbe(BaseProbe):
                 if(i not in excluded_channel_ids):
                     if(row['type'] == 'ref'):
                         channel = Channel(i, row['pos'], 'ref')
-                        ax.scatter3D(channel.pos[0], channel.pos[1], channel.pos[2], c='orange')
+                        ax.scatter3D(channel.pos[0], channel.pos[1], channel.pos[2], c='black')
                     else:
                         channel = Channel(i, row['pos'], 'rec')
                         ax.scatter3D(channel.pos[0], channel.pos[1], channel.pos[2], c='black')
@@ -95,9 +95,11 @@ class NeuropixelsProbe(BaseProbe):
                     continue
         ax.set_xlim(-300, 300)
         ax.set_ylim(-300, 300)
-        ax.set_xlabel('x (microns)')
-        ax.set_ylabel('y (microns)')
-        ax.set_zlabel('Depth (Microns)')
+        ax.set_xlabel('x (microns)', labelpad=plt.gcf().get_figheight()*2)
+        ax.set_ylabel('y (microns)', labelpad=plt.gcf().get_figheight()*2)
+        ax.set_zlabel('Depth (Microns)', labelpad=plt.gcf().get_figheight()*2)
+        for item in ([ax.title, ax.xaxis.label, ax.yaxis.label, ax.zaxis.label] + ax.get_xticklabels() + ax.get_yticklabels() + ax.get_zticklabels()):
+            item.set_fontsize(plt.gcf().get_figheight()*.75)
 
     def rotate(self, theta, axis, ax=None, plot=False):
         if(ax is None and plot):
@@ -116,7 +118,7 @@ class NeuropixelsProbe(BaseProbe):
             if(row['type'] == 'ref'):
                 channel = Channel(i, np.dot(rotation_matrix(axis, theta), row['pos']), 'ref')
                 if(plot):
-                    ax.scatter3D(channel.pos[0], channel.pos[1], channel.pos[2], c='orange')
+                    ax.scatter3D(channel.pos[0], channel.pos[1], channel.pos[2], c='black')
                 new_channels.append(channel)
             else:
                 channel = Channel(i, np.dot(rotation_matrix(axis, theta), row['pos']), 'rec')
@@ -128,8 +130,11 @@ class NeuropixelsProbe(BaseProbe):
         self.channel_df = channel_df
         ax.set_xlim(-300, 300)
         ax.set_ylim(-300, 300)
-        ax.set_xlabel('x (microns)')
-        ax.set_ylabel('y (microns)')
+        ax.set_xlabel('x (microns)', labelpad=plt.gcf().get_figheight()*2)
+        ax.set_ylabel('y (microns)', labelpad=plt.gcf().get_figheight()*2)
+        ax.set_zlabel('Depth (Microns)', labelpad=plt.gcf().get_figheight()*2)
+        for item in ([ax.title, ax.xaxis.label, ax.yaxis.label, ax.zaxis.label] + ax.get_xticklabels() + ax.get_yticklabels() + ax.get_zticklabels()):
+            item.set_fontsize(plt.gcf().get_figheight()*.75)
        
     def shift(self, dist, axis, ax, plot):
         if(ax is None and plot):
@@ -148,7 +153,7 @@ class NeuropixelsProbe(BaseProbe):
             if(row['type'] == 'ref'):
                 channel = Channel(i, row['pos'] + axis*dist, 'ref')
                 if(plot):
-                    ax.scatter3D(channel.pos[0], channel.pos[1], channel.pos[2], c='orange')
+                    ax.scatter3D(channel.pos[0], channel.pos[1], channel.pos[2], c='black')
                 new_channels.append(channel)
             else:
                 channel = Channel(i, row['pos'] + axis*dist, 'rec')
@@ -160,9 +165,11 @@ class NeuropixelsProbe(BaseProbe):
         self.channel_df = channel_df
         ax.set_xlim(-300, 300)
         ax.set_ylim(-300, 300)
-        ax.set_xlabel('x (microns)')
-        ax.set_ylabel('y (microns)')
-        ax.set_zlabel('Depth (Microns)')    
+        ax.set_xlabel('x (microns)', labelpad=plt.gcf().get_figheight()*2)
+        ax.set_ylabel('y (microns)', labelpad=plt.gcf().get_figheight()*2)
+        ax.set_zlabel('Depth (Microns)', labelpad=plt.gcf().get_figheight()*2)
+        for item in ([ax.title, ax.xaxis.label, ax.yaxis.label, ax.zaxis.label] + ax.get_xticklabels() + ax.get_yticklabels() + ax.get_zticklabels()):
+            item.set_fontsize(plt.gcf().get_figheight()*.75)   
         
     
 def rotation_matrix(axis, theta):
