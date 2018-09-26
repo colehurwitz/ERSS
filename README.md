@@ -34,6 +34,8 @@ ax = Axes3D(fig, azim=30, elev=30)
 column.plotLayer(layer_id, ax=ax)
 ```
 
+![alt text](https://raw.githubusercontent.com/colehurwitz31/ERSS/master/ERSS/images/layerdrawing.png)
+
 Finally, you can construct a probe object by importing a premade probe from the PremadeProbes class in the probes folder. Currently, only Neuropixels is supported, but other probes will be added in future updates. You can specify the number of channels on the probe in the construction (the default insertion point of the probe is at the origin of the plot which is the central surface of the barrel cortex.
 
 ```python
@@ -56,6 +58,8 @@ probe.draw(ax, excluded_channel_ids=excluded_channel_ids)
 
 column.plotColumn(close_neuron_df, plot_neurons=True, ax=ax)
 ```
+
+![alt text](https://raw.githubusercontent.com/colehurwitz31/ERSS/master/ERSS/images/recordingsite.png)
 
 ### Uses
 
