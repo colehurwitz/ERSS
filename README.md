@@ -70,7 +70,7 @@ It can be used to generate realistic extracellular recording sites for different
 
 ### Future Work
 
-More probes will be implemented (Neuroseeker, H-Series, tetrodes,  etc.) along with more brain regions (BlueBrain neocortical volume, hippocampus, thalamus, etc.) and more animals (mouse).
+We will implement more probe types (Neuroseeker, H-Series, tetrodes,  etc.) along with more brain regions (BlueBrain neocortical volume, hippocampus, thalamus, etc.) and animals (mouse).
 
 ### Papers Referenced
 
