@@ -158,6 +158,7 @@ class Column(object):
             height = row['height']
             heights.append(height)    
             region = row['region']
+            
             layer_names.append(region)
 
         print("Layers: " + str(layer_names))
@@ -232,23 +233,19 @@ class Column(object):
             ax.add_patch(ceiling)
             art3d.pathpatch_2d_to_3d(ceiling, z=depth+height, zdir="z")
 
-            depth += height
             
         f = lambda m,c: plt.plot([],[],marker=m, color=c, ls="none")[0]
         
         if(plot_neurons):
-            colors = ["red", "blue"] + layer_colors
+            colors = ["red", "blue"]
             handles = [f(".", colors[i]) for i in range(2)]
-            handles += [f("s", colors[i]) for i in range(len(layer_names))]
-
+            handles += [f("s", layer_colors[i]) for i in range(len(layer_names))]
             labels = ["Excitatory neurons", "Inhibitory neurons"] + layer_names
-
+            
             plt.legend(handles, labels, loc=1, framealpha=1, prop={'size': plt.gcf().get_figheight()})
         
         else:
-            colors = layer_colors
-            handles = [f("s", colors[i]) for i in range(len(layer_names))]
-
+            handles = [f("s", layer_colors[i]) for i in range(len(layer_names))]
             labels = layer_names
 
             plt.legend(handles, labels, loc=1, framealpha=1, prop={'size': plt.gcf().get_figheight()})
