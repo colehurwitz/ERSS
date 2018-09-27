@@ -2,7 +2,8 @@
 
 The Extracellular Recording Site Simulator (ERSS) is a tool for creating biophysically realistic recording sites given a probe geometry and brain region. ERSS currently supports the Neuropixels probe geometry and a detailed Somatosensory cortex column brain region of a rat.
  
-
+<br/>
+<br/>
 ## Getting Started
 
 To get started with ERSS, clone the repo into your code base.
@@ -61,6 +62,9 @@ column.plotColumn(close_neuron_df, plot_neurons=True, ax=ax)
 
 ![alt text](https://raw.githubusercontent.com/colehurwitz31/ERSS/master/ERSS/images/recordingsite.png)
 
+
+<br/>
+
 ### Uses
 
 This software was designed as an initial step in creating brain/probe specific evaluation datasets for
@@ -68,9 +72,13 @@ spike sorting.
 
 It can be used to generate realistic extracellular recording sites for different probe geometries within different brain regions that can be simulated using various extracellular simulators such as ViSAPy and LFPy.
 
+<br/>
+
 ### Future Work
 
 I will implement more probe types (Neuroseeker, H-Series, tetrodes,  etc.) along with more brain regions (BlueBrain neocortical volume, hippocampus, thalamus, etc.) and animals (mouse).
+
+<br/>
 
 ### Papers Referenced
 
@@ -80,6 +88,8 @@ APA
 Meyer, Hanno S., et al. "Number and laminar distribution of neurons in a thalamocortical projection column of rat vibrissal cortex." Cerebral cortex 20.10 (2010): 2277-2286.
 
 Meyer, Hanno S., et al. "Cell type–specific thalamic innervation in a column of rat vibrissal cortex." Cerebral cortex 20.10 (2010): 2287-2303.
+
+<br/>
 
 ### Author
 
