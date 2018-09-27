@@ -3,7 +3,7 @@
 The Extracellular Recording Site Simulator (ERSS) is a tool for creating biophysically realistic recording sites given a probe geometry and brain region. ERSS currently supports the Neuropixels probe geometry and a detailed Somatosensory cortex column brain region of a rat.
  
 <br/>
-<br/>
+
 ## Getting Started
 
 To get started with ERSS, clone the repo into your code base.
