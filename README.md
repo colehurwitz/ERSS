@@ -13,7 +13,7 @@ git clone https://github.com/colehurwitz31/ERSS.git
 
 To create a new cortex object, choose a brain region (currently, only the cortex region is supported) and import the class from that region's folder.
 
-Once you have imported the class from region folder, you can decide which dataset and animal data to use to reconstruct the region. Currently, we have implemented a rat barrel cortex reconstruction using data from the Helmstaedter series of papers from 2010-2011. 
+Once you have imported the class from region folder, you can decide which dataset and animal data to use to reconstruct the region. Currently, I have implemented a rat barrel cortex reconstruction using data from the Helmstaedter series of papers from 2010-2011. 
 
 ```python
 from regions.cortex.CortexColumn import Column
@@ -70,7 +70,7 @@ It can be used to generate realistic extracellular recording sites for different
 
 ### Future Work
 
-We will implement more probe types (Neuroseeker, H-Series, tetrodes,  etc.) along with more brain regions (BlueBrain neocortical volume, hippocampus, thalamus, etc.) and animals (mouse).
+I will implement more probe types (Neuroseeker, H-Series, tetrodes,  etc.) along with more brain regions (BlueBrain neocortical volume, hippocampus, thalamus, etc.) and animals (mouse).
 
 ### Papers Referenced
 
@@ -81,4 +81,10 @@ Meyer, Hanno S., et al. "Number and laminar distribution of neurons in a thalamo
 
 Meyer, Hanno S., et al. "Cell type–specific thalamic innervation in a column of rat vibrissal cortex." Cerebral cortex 20.10 (2010): 2287-2303.
 
+### Author
+
+[Cole Hurwitz](https://www.inf.ed.ac.uk/people/students/Cole_Hurwitz.html) - The Institute for Adaptive and Neural Computation (ANC), University of Edinburgh, Edinburgh, Scotland 
+<br/>
+<br/>
+For any correspondence, contact Cole Hurwitz at colehurwitz@gmail.com
 
