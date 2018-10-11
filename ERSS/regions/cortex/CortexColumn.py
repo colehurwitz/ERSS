@@ -432,11 +432,11 @@ class Column(object):
                 if(sampled_column_dict[attribute][sampled_column_dict[attribute] <= 0].shape[0] > 0):
                     valid_column = False
                 if(attribute == 'in_ratios'):
-                    if(sampled_column_dict[attribute][sampled_column_dict[attribute] >= 100].shape[0] > 0):
+                    if(sampled_column_dict[attribute][sampled_column_dict[attribute] > 100].shape[0] > 0):
                         valid_column = False
             if valid_column:
                 break
-
+    
         return sampled_column_dict
 
     def __generateDensityDistribution(self, column_dict):
@@ -469,7 +469,7 @@ class Column(object):
                 x.append(depths[i + 1])
 
         y = column_dict['densities']
-        depth_distribution = interp1d(x, y, kind='cubic')
+        depth_distribution = interp1d(x, y)
         znew = np.linspace(x[0], x[-1], num=int(x[-1])*distance_discretization, endpoint=True)
         self.znew = znew
         self.depth_distribution = depth_distribution
