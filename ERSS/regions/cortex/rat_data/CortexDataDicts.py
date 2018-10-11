@@ -2,11 +2,11 @@
 
 def createHelmstaedterRatSomatosensoryCortexDataDict():
     '''Returns dictionary containing all import statistics for recreating an average somatosensory cortical column from the Helmsteader studies. All biophysical details were gathered from these three papers:
-                                
+
                                 https://www.ncbi.nlm.nih.gov/pubmed/21949377
                                 https://www.ncbi.nlm.nih.gov/pubmed/20534784
                                 https://www.ncbi.nlm.nih.gov/pubmed/20534783
-    
+
     Returns
     -------
     cortex_data_dict: dict
@@ -26,24 +26,27 @@ def createHelmstaedterRatSomatosensoryCortexDataDict():
     #Height (μm): L1, L2, L3, L4, L5A, L5B, L6A, L6B
     cortex_data_dict['Mean']['heights'] = [75, 171, 272, 263, 234, 274, 300, 185]
     cortex_data_dict['Std']['heights'] = [20, 21, 76, 31, 35, 1, 19, 16]
-    
-    #IN-to-neuron ratios: L1, L2, L3, L4, L5A, L5B, L6A, L6B,  C2, D2, D3                
+
+    #IN-to-neuron ratios: L1, L2, L3, L4, L5A, L5B, L6A, L6B,  C2, D2, D3
     cortex_data_dict['Mean']['in_ratios'] = [84.3, 17, 9, 8.1, 19.9, 16.2, 8.9, 8.4]
     cortex_data_dict['Std']['in_ratios'] = [9.5, 2.4, 1.1, 0.5, 4.1, 2.1, 0.9, 0.6]
-    
+
+    cortex_data_dict['majority_in_type'] = [None, None, None, None, None, None, None, None]
+    cortex_data_dict['majority_ex_type'] = [None, None, None, None, None, None, None, None]
+
 #     #IN densities 10^3 per mm^3*: L1, L2, L3, L4, L5A, L5B, L6A, L6B)  (C2, D2, D3
 #     cortex_data_dict['Mean']['in_densities'] = [5.5, 14.5, 9.1, 10, 10.9, 9.7, 8.2, 3.5]
 #     cortex_data_dict['Std']['in_densities'] = [2.2, 0.7, 1.5, 1.1, 3, 1.9, 0.8, 0.4]
-    
+
     return cortex_data_dict
 
 # -*- coding: utf-8 -*-
 
 def createBlueBrainRatSomatosensoryCortexDataDict():
     '''Returns dictionary containing all import statistics for recreating an average somatosensory cortical column from the Blue Brain studies. All biophysical details were gathered from the Blue Brain portal:
-                                
+
                                 https://bbp.epfl.ch/nmc-portal/welcome
-    
+
     Returns
     -------
     cortex_data_dict: dict
@@ -63,15 +66,15 @@ def createBlueBrainRatSomatosensoryCortexDataDict():
     #Height (μm): L1, L2, L3, L4, L5, L6
     cortex_data_dict['Mean']['heights'] = [165.0, 149.0, 353.0, 190.0, 525.0, 700.0]
     cortex_data_dict['Std']['heights'] = [13.0, 13.0, 14.0, 7.0, 33.0, 48.0]
-    
-    #IN-to-neuron ratios: L1, L2, L3, L4, L5, L6 (No std. because only one animal used)             
+
+    #IN-to-neuron ratios: L1, L2, L3, L4, L5, L6 (No std. because only one animal used)
     cortex_data_dict['Mean']['in_ratios'] = [100.0, 15.9, 15.9, 10.3, 17.4, 10.8]
     cortex_data_dict['Std']['in_ratios'] = [0, 0, 0, 0, 0, 0]
 
-    #Majority cell type: L1, L2, L3, L4, L5, L6      
-    cortex_data_dict['Mean']['majority_in_type'] = ['L1_HAC', 'L23_LBC', 'L23_LBC', 'L4_LBC', 'L5_MC', 'L6_LBC']
-    cortex_data_dict['Mean']['majority_ex_type'] = [None, 'L23_PC', 'L23_PC', 'L4_PC', 'L5_TTPC1', 'L6_IPC']
-    
+    #Majority cell type: L1, L2, L3, L4, L5, L6
+    cortex_data_dict['majority_in_type'] = ['L1_HAC', 'L2_LBC', 'L3_LBC', 'L4_LBC', 'L5_MC', 'L6_LBC']
+    cortex_data_dict['majority_ex_type'] = [None, 'L2_PC', 'L3_PC', 'L4_PC', 'L5_TTPC1', 'L6_IPC']
+
     '''
     Explanation of cell type notation: The complete name of a neuron is Lx_PC, Lx_DBC etc. - x
     is a number from 1-6, which denotes the layer. Note that layer 1 contains only inhibitory neurons.
@@ -104,8 +107,8 @@ def createBlueBrainRatSomatosensoryCortexDataDict():
 	NGC 	Neurogliaform Cell
 	LBC 	Large Basket Cell
 	NBC 	Nest Basket Cell
-	SBC 	Small Basket Cell 
+	SBC 	Small Basket Cell
 	ChC 	Chandelier Cell
     '''
-    
+
     return cortex_data_dict
