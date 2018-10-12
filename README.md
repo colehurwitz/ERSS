@@ -63,6 +63,21 @@ column.plotColumn(close_neuron_df, plot_neurons=True, ax=ax)
 
 <br/>
 
+### Supported Probes
+
+- Neuropixels
+
+<br/>
+
+### Supported Brain Regions
+
+- Somatosensory neocortical volume from HelmStaedter papers
+
+
+- Somatosensory neocortical volume from BlueBrain portal
+
+<br/>
+
 ### Uses
 
 This software was designed as an initial step in creating brain/probe specific evaluation datasets for
@@ -74,7 +89,7 @@ It can be used to generate realistic extracellular recording sites for different
 
 ### Future Work
 
-I will implement more probe types (Neuroseeker, H-Series, tetrodes,  etc.) along with more brain regions (BlueBrain neocortical volume, hippocampus, thalamus, etc.) and animals (mouse).
+I will implement more probe types (Neuroseeker, H-Series, tetrodes,  etc.) along with more brain regions (hippocampus, thalamus, etc.) and animals (mouse).
 
 <br/>
 
